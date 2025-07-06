@@ -1,0 +1,19 @@
+# take screenshot
+"scrot ~/Pictures/Screenshots/Screenshot-%y.%m.%-d_%H.%S.png"
+    F12
+
+# raise volume
+"pamixer -i 5"
+    XF86AudioRaiseVolume
+
+# lower volume
+"pamixer -d 5"
+    XF86AudioLowerVolume
+
+# raise brightness
+"brightnessctl set 100%"
+    F6
+
+# lower brightness
+"brightnessctl set 80%"
+    F5
