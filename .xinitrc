@@ -1,3 +1,4 @@
+xsetroot -solid "#1f1f28"
 setxkbmap -option caps:escape &
 xbindkeys &
 slstatus &
