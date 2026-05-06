@@ -1,19 +1,22 @@
 # take screenshot
-"scrot ~/Pictures/Screenshots/Screenshot-%y.%m.%-d_%H.%S.png"
-    F12
+"scrot ~/Pictures/Screenshots/Screenshot-%y.%m.%-d_%H.%S.png -e 'xclip -selection clipboard -t image/png < $f && notify-send \"Screenshot Saved.\" \"$f\"'"
+    Print
+
+# make copy selection
+"scrot -s -q 100 -e 'xclip -selection clipboard -t image/png < $f; notify-send \"Selection Copied To Clipboard.\"'"
+    Control + Print
 
 # raise volume
-"pamixer -i 5"
+"wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && pkill -USR1 slstatus"
     XF86AudioRaiseVolume
 
 # lower volume
-"pamixer -d 5"
+"wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && pkill -USR1 slstatus"
     XF86AudioLowerVolume
 
-# raise brightness
-"brightnessctl set 100%"
-    F6
+# brightness settings
+"sh -c 'brightnessctl set +10%; val=$(brightnessctl -m | cut -d, -f4); notify-send -r 9999 Display\ Brightness:\ $val'"
+    XF86MonBrightnessUp
 
-# lower brightness
-"brightnessctl set 80%"
-    F5
+"sh -c 'brightnessctl set 10%-; val=$(brightnessctl -m | cut -d, -f4); notify-send -r 9999 Display\ Brightness:\ $val'"
+    XF86MonBrightnessDown

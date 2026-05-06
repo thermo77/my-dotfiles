@@ -1,3 +1,5 @@
+export PATH="$HOME/.local/bin:$PATH"
+
 # set up command history
 HISTFILE=~/.histfile
 HISTSIZE=1000

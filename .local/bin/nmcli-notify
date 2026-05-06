@@ -1,0 +1,20 @@
+#!/bin/sh
+
+last=""
+
+while true; do
+    state=$(nmcli -t -f WIFI,STATE general | cut -d: -f2)
+
+    if [ "$state" != "$last" ]; then
+        if [ "$state" = "connected" ]; then
+            ssid=$(nmcli -t -f active,ssid dev wifi | awk -F: '$1=="yes"{print $2}')
+            notify-send "WiFi Connected" "$ssid"
+        else
+            notify-send "WiFi Disconnected"
+        fi
+
+        last="$state"
+    fi
+
+    sleep 1
+done

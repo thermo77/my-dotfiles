@@ -1,7 +1,8 @@
-xsetroot -solid "#1f1f28"
+export PATH="$HOME/.local/bin:$PATH"
+
 setxkbmap -option caps:escape &
+dunst &
+nmcli-notify &
 xbindkeys &
 slstatus &
-alacritty &!
-exec dwm
-#exec startxfce4
+exec dbus-run-session dwm
