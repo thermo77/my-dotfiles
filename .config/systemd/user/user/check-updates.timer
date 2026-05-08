@@ -1,0 +1,12 @@
+[Unit]
+Description=Run update check every 4 hours
+
+[Timer]
+# Wait 30s after booting before the first check
+OnBootSec=30s
+# Then run every 4 hours
+OnUnitActiveSec=4h
+Persistent=true
+
+[Install]
+WantedBy=timers.target

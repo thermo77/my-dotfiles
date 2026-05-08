@@ -1,0 +1,6 @@
+[Unit]
+Description=Check for Arch updates
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash %h/.local/bin/pacman-notify

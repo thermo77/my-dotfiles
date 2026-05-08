@@ -1,0 +1,19 @@
+#!/bin/bash
+
+export DISPLAY=:0
+export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$(pgrep -u $USER dwm)/environ | cut -d= -f2-)
+updates=$(checkupdates 2> /dev/null) || updates=""
+
+if [ -z "$updates" ]; then
+    exit 0
+fi
+
+count=$(echo "$updates" | wc -l)
+
+if echo "$updates" | grep -qw "linux"; then
+    notify-send "System: Kernal update required."
+else
+    notify-send "System: $count packages ready to update."
+fi
+
+exit 0
