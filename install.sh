@@ -2,12 +2,14 @@
 
 # Install dependencies
 echo "Installing packages..."
-sudo pacman -S --needed pacman-contrib libnotify dunst xbindkeys zsh nvim alacritty fastfetch
+sudo pacman -S --needed nmcli pacman-contrib libnotify dunst xbindkeys zsh nvim alacritty fastfetch
 
 mkdir -p ~/.config/systemd/user
+mkdir -p ~/.local/bin
 
 # Create symlinks
 echo "Linking files..."
+ln -sf ~/my-dotfiles/.local/bin/* ~/.local/bin/
 for file in .zshrc .zprofile .xinitrc .xbindkeysrc; do
     ln -sf ~/my-dotfiles/$file ~/$file
 done
