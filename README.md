@@ -18,4 +18,4 @@ install using the included install script:
 ```
 chmod +x install.sh && ./install.sh
 ```
-or manually dependencies and link the corresponding dot/configuration files.
+or manually install dependencies and link the corresponding dot/configuration files.
