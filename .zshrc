@@ -14,15 +14,14 @@ zstyle ":completion:*" menu select
 zstyle ':completion::complete:*' gain-privileges 1
 
 # set up alias' 
+alias cp="cp -i"
+alias rm="rm -i"
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias sudo="sudo "
 alias neofetch="fastfetch"
 alias vim="nvim"
+alias y="yazi"
 
 # set up prompt
 PS1="[%F{green}%n%f%F{yellow}@%f%F{red}%m%f %1~]$ "
-
-# on zsh startup
-# --------------
-fastfetch

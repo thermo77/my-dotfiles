@@ -1,0 +1,8 @@
+[preview]
+max_width = 1000
+max_height = 1000
+
+[plugin]
+prepend_previewers = [
+    { mime = "application/pdf", run = "pdf" },
+]

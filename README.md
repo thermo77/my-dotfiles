@@ -2,7 +2,12 @@ No-frills configurations for Arch Linux on an IdeaPad.
 
 ## Dependencies
 #### Core/Required
+<<<<<<< HEAD
 - nmcli
+=======
+- networkmanager
+- wireplumber
+>>>>>>> fc0d2fb (Add kitty and yazi remove alacritty)
 - pacman-contrib
 - libnotify
 - dunst
@@ -10,7 +15,13 @@ No-frills configurations for Arch Linux on an IdeaPad.
 - zsh
 #### (Optional)
 - nvim
+<<<<<<< HEAD
 - alacritty
+=======
+- kitty
+- yazi
+- zathura
+>>>>>>> fc0d2fb (Add kitty and yazi remove alacritty)
 - fastfetch
 
 ## Installation
