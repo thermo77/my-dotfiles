@@ -17,7 +17,7 @@ No-frills configurations for Arch Linux on an IdeaPad.
 - fastfetch
 
 ## Installation
-note: the installation script will overwrite any existing configurations on the system
+> note: the installation script will overwrite any existing configurations on the system
 
 install using the included install script:
 ```
