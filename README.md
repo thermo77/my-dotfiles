@@ -2,7 +2,6 @@ No-frills configurations for Arch Linux on an IdeaPad.
 
 ## Dependencies
 #### Core/Required
-- nmcli
 - networkmanager
 - wireplumber
 - pacman-contrib
@@ -11,13 +10,15 @@ No-frills configurations for Arch Linux on an IdeaPad.
 - xbindkeys
 - zsh
 #### (Optional)
-- nvim
+- neovim
 - kitty
 - yazi
 - zathura
 - fastfetch
 
 ## Installation
+note: the installation script will overwrite any existing configurations on the system
+
 install using the included install script:
 ```
 chmod +x install.sh && ./install.sh
