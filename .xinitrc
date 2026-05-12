@@ -1,5 +1,4 @@
 export PATH="$HOME/.local/bin:$PATH"
-
 setxkbmap -option caps:escape &
 dunst &
 nmcli-notify &

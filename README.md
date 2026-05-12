@@ -12,7 +12,6 @@ No-frills configurations for Arch Linux on an IdeaPad.
 - zsh
 #### (Optional)
 - nvim
-- alacritty
 - kitty
 - yazi
 - zathura

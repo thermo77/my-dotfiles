@@ -2,16 +2,25 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # set up command history
 HISTFILE=~/.histfile
-HISTSIZE=1000
+HISTSIZE=5000
 SAVEHIST=5000
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt APPEND_HISTORY
+
 unsetopt beep
 
 # set up autocompletion
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
 
 zstyle ":completion:*" menu select
 zstyle ':completion::complete:*' gain-privileges 1
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+# fzf bind
+bindkey '^T' fzf-file-widget
 
 # set up alias' 
 alias cp="cp -i"

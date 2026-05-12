@@ -14,9 +14,10 @@
 "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && pkill -USR1 slstatus"
     XF86AudioLowerVolume
 
-# brightness settings
+# raise brightness
 "sh -c 'brightnessctl set +10%; val=$(brightnessctl -m | cut -d, -f4); notify-send -r 9999 Display\ Brightness:\ $val'"
     XF86MonBrightnessUp
 
+# lower brightness
 "sh -c 'brightnessctl set 10%-; val=$(brightnessctl -m | cut -d, -f4); notify-send -r 9999 Display\ Brightness:\ $val'"
     XF86MonBrightnessDown

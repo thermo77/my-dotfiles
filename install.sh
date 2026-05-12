@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Install dependencies
 echo "Installing packages..."
 sudo pacman -S --needed networkmanager wireplumber pacman-contrib libnotify dunst scrot xbindkeys zsh nvim kitty zathura yazi fastfetch
@@ -9,18 +11,25 @@ mkdir -p ~/.local/bin
 
 # Create symlinks
 echo "Linking files..."
-ln -sf ~/my-dotfiles/.local/bin/* ~/.local/bin/
+
+for f in ~/my-dotfiles/.local/bin/*; do
+    ln -sf "$f" ~/.local/bin/
+done
+
 for file in .zshrc .zprofile .xinitrc .xbindkeysrc; do
     ln -sf ~/my-dotfiles/$file ~/$file
 done
-ln -sf ~/my-dotfiles/.config/zathura ~/.config/zathura
-ln -sf ~/my-dotfiles/.config/yazi ~/.config/yazi
-ln -sf ~/my-dotfiles/.config/kitty ~/.config/kitty
-ln -sf ~/my-dotfiles/.config/dunst ~/.config/dunst
-ln -sf ~/my-dotfiles/.config/fastfetch ~/.config/fastfetch
-ln -sf ~/my-dotfiles/.config/nvim ~/.config/nvim
-ln -sf ~/my-dotfiles/.config/systemd/user/check-updates.service ~/.config/systemd/user/check-updates.service
-ln -sf ~/my-dotfiles/.config/systemd/user/check-updates.timer ~/.config/systemd/user/check-updates.timer
+
+for dir in yazi kitty zathura dunst fastfetch nvim; do
+    target="$HOME/.config/$dir"
+    source="$HOME/my-dotfiles/.config/$dir"
+
+    rm -rf "$target"
+    ln -s "$source" "$target"
+done
+
+ln -sfn ~/my-dotfiles/.config/systemd/user/check-updates.service ~/.config/systemd/user/check-updates.service
+ln -sfn ~/my-dotfiles/.config/systemd/user/check-updates.timer ~/.config/systemd/user/check-updates.timer
 
 # Start daemons
 echo "Starting updates timer..."
