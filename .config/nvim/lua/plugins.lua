@@ -31,7 +31,7 @@ require("lazy").setup({
         config = function()
             require("nvim-treesitter.configs").setup({
                 -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-                ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+                ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "java" },
 
                 -- Recommendation: set to false if you don"t have `tree-sitter` CLI installed locally
                 auto_install = true,
@@ -152,4 +152,27 @@ require("lazy").setup({
             },
         },
     },
+    {
+        "mfussenegger/nvim-jdtls",
+        ft = { "java" },
+        config = function()
+            local jdtls = require("jdtls")
+
+            local root_dir = vim.fs.dirname(
+                vim.fs.find("src", { upward = true })[1]
+            )
+
+            local workspace_dir = vim.fn.stdpath("data")
+                .. "/jdtls-workspace/"
+                .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+
+            jdtls.start_or_attach({
+                cmd = { vim.fn.stdpath("data") .. "/mason/bin/jdtls" },
+
+                root_dir = root_dir,
+
+                workspace_folder = workspace_dir,
+            })
+        end,
+    }
 })
