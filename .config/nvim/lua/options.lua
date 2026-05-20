@@ -24,11 +24,16 @@ vim.diagnostic.config({
         source = "always", 
         spacing = 2,
         prefix = "<-", 
+        format = function(diagnostic)
+            return diagnostic.message
+        end,
     },
     signs = true,
     underline = true,
     update_in_insert = false,
     float = {
         source = "always",
+        wrap = true,
+        max_width = 120,
     },
 })
